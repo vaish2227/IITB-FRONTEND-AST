@@ -1,0 +1,11 @@
+/* styles.css */
+.navbar {
+    text-align: center;
+    color: white;
+    padding-left: 580px;
+
+}
+.navbar navbar-expand-md navbar-dark bg-dark
+{
+    width: 750px;
+}

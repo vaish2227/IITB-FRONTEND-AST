@@ -1,0 +1,127 @@
+.CourseCreationForm {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.CourseInstanceForm {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.CourseCreationForm h1 {
+  text-align: center;
+}
+.CourseInstanceForm h1 {
+  text-align: center;
+}
+
+.CourseCreationForm form {
+  margin-top: 20px;
+}
+.CourseInstanceForm form {
+  margin-top: 20px;
+}
+
+.CourseCreationForm input,
+.CourseInstanceForm input,
+.CourseCreationForm textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.CourseInstanceForm textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.CourseCreationForm button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #008000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.CourseInstanceForm button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #008000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.CenterForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.App {
+  text-align: center;
+  /* Other styles for your App component */
+
+  /* Add the following styles for the forms container */
+  .forms-container {
+    display: flex;
+    justify-content: space-between; /* Adjust as needed */
+  }
+
+  /* Add styles for each form */
+  .form {
+    flex: 1; /* This makes each form take up equal width */
+    padding: 16px; /* Add padding for spacing */
+    /* Other styles for your form */
+  }
+}
+
+.select-course-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  width: 100%;
+  gap : 10px;
+} 
+.footer{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  text-align: center;
+  color:white;
+}
+.box{
+  flex: 1;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.select-course-field select{
+  /* flex: 1; */
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

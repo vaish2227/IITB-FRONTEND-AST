@@ -1,0 +1,31 @@
+/* WelcomePage.css */
+.welcome-container {
+   /* Set your background image */
+    background-size: 100%;
+    background-origin: content;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-content {
+    text-align: center;
+    color:black;
+}
+
+.welcome-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.welcome-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+
+
+
