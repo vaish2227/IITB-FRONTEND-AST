@@ -1,17 +1,15 @@
 import axios from "axios";
-const COURSES_INSTANCE_API_BASE_URL = "http://localhost:8080/api/instances/getcourseinstancelist";
+const COURSES_API_BASE_URL = "http://localhost:8080/api/";
 // eslint-disable-next-line no-template-curly-in-string
-const DELETE_URL = "http://localhost:8080/api/instances/deletecourseinstance/${year}/${semester}/${courseInstanceId}"
 class ListCourseInstanceService {
   getCourseInstance() {
-    return axios.get(COURSES_INSTANCE_API_BASE_URL);
+    return axios.get(`${COURSES_API_BASE_URL}instances/getcourseinstancelist`);
   }
 
   deleteCourseInstance(year, semester, courseInstanceId) {
-    const DELETE_URL = `http://localhost:8080/api/instances/deletecourseinstance/${year}/${semester}/${courseInstanceId}`;
     
     // Send a DELETE request to the server
-    return axios.delete(DELETE_URL)
+    return axios.delete(`${COURSES_API_BASE_URL}instances/deletecourseinstance/${year}/${semester}/${courseInstanceId}`)
       .then((response) => {
         // Handle success if needed
         return response.data; // You can return data if the API sends a response

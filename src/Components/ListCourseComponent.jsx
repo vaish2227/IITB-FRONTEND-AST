@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ListCourseService from '../services/ListCourseService';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class ListCourseComponent extends Component {
     constructor(props) {
@@ -21,10 +23,25 @@ class ListCourseComponent extends Component {
     }
 
     handleDeleteClick(courseId) {
-        // Call the delete API service and pass the course ID
-        ListCourseService.deleteCourse(courseId).then(() => {
-            // After successful deletion, refresh the course list
-            this.refreshCourses();
+        confirmAlert({
+            title: 'Confirm Deletion',
+            message: 'Are you sure you want to delete this course?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+                        // Call the delete API service and pass the course ID
+                        ListCourseService.deleteCourse(courseId).then(() => {
+                            // After successful deletion, refresh the course list
+                            this.refreshCourses();
+                        });
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => { }
+                }
+            ]
         });
     }
 

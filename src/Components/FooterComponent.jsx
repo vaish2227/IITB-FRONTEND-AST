@@ -14,11 +14,11 @@ class FooterComponent extends Component {
             <div>
                 <footer className="footer">
                     <span
-                        onClick={() => window.open('https://github.com/gauravi26', '_blank', 'noopener,noreferrer')}
+                        onClick={() => window.open('', '_blank', 'noopener,noreferrer')}
                         className="footer-link"
                         style={{ cursor: 'pointer', textDecoration: 'underline' }}
                     >
-                        All Rights Reserved 2023 @GD
+                        All Rights Reserved 2023
                     </span>
                 </footer>
             </div>

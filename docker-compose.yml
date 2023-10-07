@@ -1,0 +1,55 @@
+version: '3.7'
+
+# Define services
+services:
+  # App backend service
+  app-server:
+    image: springapp:latest # Replace with your actual image name and tag
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - mysqldb # Updated dependency name to mysqldb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/coursedb # Updated database host to mysqldb
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: Pass@123
+    networks:
+      - springmysql-net
+
+  # Frontend Service 
+  app-client:
+    image: reactapp:latest # Replace with your actual image name and tag
+    ports:
+      - "80:80"
+    restart: always
+    depends_on:
+      - app-server
+    environment:
+      REACT_APP_API_BASE_URL: http://localhost:8080/api/
+    networks:
+      - springmysql-net
+
+  # Database Service (Mysql)
+  mysqldb: # Updated service name to mysqldb
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: coursedb
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: Pass@123
+      MYSQL_ROOT_PASSWORD: Pass@123
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - springmysql-net
+
+# Volumes
+volumes:
+  db-data:
+
+# Networks to be created to facilitate communication between containers
+networks:
+  springmysql-net:

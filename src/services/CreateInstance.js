@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const COURSES_API_BASE_URL = "http://localhost:8080/api/instances/addcourseinstance";
+const COURSES_API_BASE_URL = "http://localhost:8080/api/";
 
 // class CourseService {
 //   addCourse(courseData) {
@@ -12,12 +12,12 @@ const COURSES_API_BASE_URL = "http://localhost:8080/api/instances/addcourseinsta
 // export default new CourseService();
 
 const instanceService = async (data) => {
-    const response = await axios.post(COURSES_API_BASE_URL, data);
+    const response = await axios.post(`${COURSES_API_BASE_URL}instances/addcourseinstance`, data);
     return response.data;
 }
 
 const getCourseList = async () => {
-    const response = await axios.get("http://localhost:8080/api/courses/getcourselist");
+    const response = await axios.get(`${COURSES_API_BASE_URL}courses/getcourselist`);
     return response.data;
 }
 

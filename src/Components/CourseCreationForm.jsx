@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CourseCreationForm = () => {
   const [courseTitle, setCourseTitle] = useState('');
@@ -18,7 +20,17 @@ const CourseCreationForm = () => {
     axios.post('http://localhost:8080/api/courses/addcourse', newCourse)
       .then(response => {
         console.log('Course created successfully!', response.data);
-        // You can handle success actions here, like showing a success message.
+
+        // Reset the form fields to their initial empty values
+        setCourseTitle('');
+        setCourseCode('');
+        setCourseDescription('');
+
+        // Show a success toast message
+        toast.success('Course created successfully!', {
+          position: 'top-right',
+          autoClose: 3000, // Close the toast after 3 seconds
+        });
       })
       .catch(error => {
         console.error('Error creating course:', error);
@@ -28,6 +40,7 @@ const CourseCreationForm = () => {
 
   return (
     <div className="CourseCreationForm">
+      <ToastContainer />
       <h1>Create a new course</h1>
       <div className="CourseFields">
         <form onSubmit={handleSubmit} className="CenterForm">

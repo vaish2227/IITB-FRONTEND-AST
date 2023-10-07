@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ListCourseInstanceService from '../services/ListCourseInstanceService';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class ListCourseInstanceComponent extends Component {
     constructor(props) {
@@ -21,10 +23,25 @@ class ListCourseInstanceComponent extends Component {
     }
 
     handleDeleteClick(year, semester, courseInstanceId) {
-        // Call the delete API service and pass the year, semester, and course instance ID
-        ListCourseInstanceService.deleteCourseInstance(year, semester, courseInstanceId).then(() => {
-            // After successful deletion, refresh the course instance list
-            this.refreshCourseInstances();
+        confirmAlert({
+            title: 'Confirm Deletion',
+            message: 'Are you sure you want to delete this course instance?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+                        // Call the delete API service and pass the year, semester, and course instance ID
+                        ListCourseInstanceService.deleteCourseInstance(year, semester, courseInstanceId).then(() => {
+                            // After successful deletion, refresh the course instance list
+                            this.refreshCourseInstances();
+                        });
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => { }
+                }
+            ]
         });
     }
 
@@ -56,7 +73,7 @@ class ListCourseInstanceComponent extends Component {
                                         <button
                                             className="btn btn-danger btn-sm"
                                             onClick={() => this.handleDeleteClick(courseInstance.courseYear, courseInstance.courseSem, courseInstance.id)}
-                                            >
+                                        >
                                             Delete
                                         </button>
                                     </td>
