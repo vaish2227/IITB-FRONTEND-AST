@@ -4,7 +4,7 @@ version: '3.7'
 services:
   # App backend service
   app-server:
-    image: springapp:latest # Replace with your actual image name and tag
+    image: prasadpatharkar003/course-application:springapp-tagname # Replace with your Docker Hub image name and tag
     ports:
       - "8080:8080"
     restart: always
@@ -19,7 +19,7 @@ services:
 
   # Frontend Service 
   app-client:
-    image: reactapp:latest # Replace with your actual image name and tag
+    image: prasadpatharkar003/course-application:reactapp-tagname # Replace with your Docker Hub image name and tag
     ports:
       - "80:80"
     restart: always
@@ -32,7 +32,7 @@ services:
 
   # Database Service (Mysql)
   mysqldb: # Updated service name to mysqldb
-    image: mysql:5.7
+    image: prasadpatharkar003/course-application:mysql-tagname # Replace with your Docker Hub image name and tag
     ports:
       - "3306:3306"
     restart: always
